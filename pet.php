@@ -1,218 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Registration</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Pet Registration Form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #00ffbb;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
+            background:aqua;
         }
-
-        #address {
-            width: 100%;
-            height: 70px;
+        form {
+            flex-direction: column;
+    max-width: 409px;
+    margin: auto;
+    padding: 54px;
+    display: flex
+;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background:#00ffd6;
         }
-
-        .form-container {
-            max-width: 580px;
-            margin: 50px auto;
-            background: #f8efef;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        form div {
+            margin-bottom: 15px;
         }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        label {
+        form label {
             display: block;
-            margin-top: 15px;
-            font-weight: bold;
+            margin-bottom: 5px;
         }
-
-        input,
-        select,
-        button,
-        textarea {
+        form input, form select, form textarea, form button {
             width: 100%;
             padding: 10px;
-            margin-top: 8px;
             border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
+            border-radius: 5px;
         }
-
-        button {
-            background-color: rgb(188, 230, 51);
-            color: white;
-            width: 50%;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            display: block;
-            margin: auto;
-            margin-top: 15px;
-        }
-
-        button:hover {
-            background-color: rgb(209, 184, 58);
-        }
-
-        .rad {
-            display: flex;
-        }
-
-        .rad input {
-            margin-top: 16px;
-        }
-
-        /* Modal styles */
-        .modal {
+        #popup {
             display: none;
             position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 15% auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             padding: 20px;
-            border: 1px solid #888;
-            width: 50%;
-            border-radius: 8px;
-            text-align: center;
+            background-color: #fff;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
+        #popup button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
             cursor: pointer;
         }
     </style>
 </head>
-
 <body>
-    <div class="form-container">
-        <h1 style="text-align:center;color:rgb(255, 127, 72)">Prathiksha's</h1>
-        <h2 style="text-align:center;color:rgb(243, 144, 102)">Pet Registration Form</h2>
-        <form id="pet-registration-form">
-            <label for="ownerName">Owner's Name:</label>
-            <input type="text" id="ownerName" name="ownerName" required>
 
-            <label for="petName">Pet's Name:</label>
-            <input type="text" id="petName" name="petName" required>
+<h2 style="text-align:center;">Pet Registration Form</h2>
 
-            <label for="petType">Pet Type:</label>
-            <select id="petType" name="petType" required>
-                <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-                <option value="Bird">Bird</option>
-                <option value="Other">Other</option>
-            </select>
-
-            <label for="age">Pet's Age:</label>
-            <input type="number" id="age" name="age" min="0" required>
-
-            <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
-
-            <label for="address">Address:</label>
-            <textarea id="address" name="address" rows="3" required></textarea>
-
-            <label>Have you owned a pet before?</label>
-            <div class="rad">
-                <label for="ownedYes">Yes</label>
-                <input type="radio" id="ownedYes" name="ownedBefore" value="Yes" required>
-            </div>
-            <div class="rad">
-                <label for="ownedNo">No</label>
-                <input type="radio" id="ownedNo" name="ownedBefore" value="No" required>
-            </div>
-
-            <label for="petColor">Pet's Color:</label>
-            <input type="color" id="petColor" name="petColor">
-
-            <label for="petDOB">Pet's Date of Birth:</label>
-            <input type="date" id="petDOB" name="petDOB">
-
-            <button type="submit">Register</button>
-        </form>
+<form id="petForm">
+    <div>
+        <label for="petName">Pet Name</label>
+        <input type="text" id="petName" name="petName" required>
     </div>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Registration Details</h2>
-            <p id="modal-details"></p>
+    <div>
+        <label for="ownerName">Owner's Name</label>
+        <input type="text" id="ownerName" name="ownerName" required>
+    </div>
+    <div>
+        <label for="petType">Pet Type</label>
+        <select id="petType" name="petType" required>
+            <option value="">Select Type</option>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+            <option value="Bird">Bird</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div>
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <div>
+            <label><input type="radio" name="gender" value="Male" required> Male</label>
+            <label><input type="radio" name="gender" value="Female"> Female</label>
         </div>
     </div>
+    <div>
+        <label for="notes">Special Notes</label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+    </div>
+    <button type="submit">Register Pet</button>
+</form>
 
-    <script>
-        document.getElementById('pet-registration-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent form submission
+<div id="popup">
+    <h3>Data Saved!</h3>
+    <div id="savedData"></div>
+    <button onclick="$('#popup').hide();">Close</button>
+</div>
 
-            const ownerName = document.getElementById('ownerName').value;
-            const petName = document.getElementById('petName').value;
-            const petType = document.getElementById('petType').value;
-            const age = document.getElementById('age').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const address = document.getElementById('address').value;
-            const ownedBefore = document.querySelector('input[name="ownedBefore"]:checked').value;
-            const petColor = document.getElementById('petColor').value;
-            const petDOB = document.getElementById('petDOB').value;
+<?php
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    header('Content-Type: application/json');
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "pet_database";
 
-            // Display modal with details
-            const modal = document.getElementById('modal');
-            const modalDetails = document.getElementById('modal-details');
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-            modalDetails.innerHTML = `
-                <strong>Owner's Name:</strong> ${ownerName}<br>
-                <strong>Pet's Name:</strong> ${petName}<br>
-                <strong>Pet Type:</strong> ${petType}<br>
-                <strong>Pet's Age:</strong> ${age}<br>
-                <strong>Email:</strong> ${email}<br>
-                <strong>Phone:</strong> ${phone}<br>
-                <strong>Address:</strong> ${address}<br>
-                <strong>Owned Before:</strong> ${ownedBefore}<br>
-                <strong>Pet's Color:</strong> <span style="color:${petColor}">${petColor}</span><br>
-                <strong>Pet's DOB:</strong> ${petDOB}<br>
-            `;
+    if ($conn->connect_error) {
+        echo json_encode(['success' => false, 'error' => $conn->connect_error]);
+        exit;
+    }
 
-            modal.style.display = 'block';
+    $petName = $conn->real_escape_string($_POST['petName']);
+    $ownerName = $conn->real_escape_string($_POST['ownerName']);
+    $petType = $conn->real_escape_string($_POST['petType']);
+    $dob = $conn->real_escape_string($_POST['dob']);
+    $gender = $conn->real_escape_string($_POST['gender']);
+    $notes = $conn->real_escape_string($_POST['notes']);
+
+    $sql = "INSERT INTO pets (petName, ownerName, petType, dob, gender, notes) VALUES ('$petName', '$ownerName', '$petType', '$dob', '$gender', '$notes')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode([
+            'success' => true,
+            'petName' => $petName,
+            'ownerName' => $ownerName,
+            'petType' => $petType,
+            'dob' => $dob,
+            'gender' => $gender,
+            'notes' => $notes
+        ]);
+    } else {
+        echo json_encode(['success' => false, 'error' => $conn->error]);
+    }
+
+    $conn->close();
+    exit;
+}
+?>
+
+<script>
+    $(document).ready(function() {
+        $('#petForm').on('submit', function(e) {
+            e.preventDefault();
+
+            const formData = $(this).serialize();
+
+            $.ajax({
+                url: window.location.href, 
+                method: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        $('#savedData').html(
+                            `<p><strong>Pet Name:</strong> ${response.petName}</p>
+                             <p><strong>Owner's Name:</strong> ${response.ownerName}</p>
+                             <p><strong>Pet Type:</strong> ${response.petType}</p>
+                             <p><strong>Date of Birth:</strong> ${response.dob}</p>
+                             <p><strong>Gender:</strong> ${response.gender}</p>
+                             <p><strong>Special Notes:</strong> ${response.notes}</p>`
+                        );
+                        $('#popup').show();
+                        $('#petForm')[0].reset();
+                    } else {
+                        alert('Error saving data: ' + (response.error || 'Unknown error'));
+                    }
+                },
+                error: function() {
+                    alert('Failed to send request. Please try again.');
+                }
+            });
         });
+    });
+</script>
 
-        document.querySelector('.close').onclick = function () {
-            document.getElementById('modal').style.display = 'none';
-        };
-    </script>
 </body>
-
 </html>
