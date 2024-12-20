@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resume</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+
+        header ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        header ul li {
+            margin-left: 50px;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        header ul li a:hover {
+            color: #00bcd4;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background: #f4f4f4;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        img {
+            justify-self: center;
+            height: 150px;
+            width: 150px;
+            display: flex;
+            border: 5px solid lightblue;
+            border-radius: 50%;
+        }
+
+        form {
+            max-width: 533px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+            background: #f9f9f9;
+            border-radius: 12px;
+        }
+        #contact h2{
+            text-align: center;
+        }
+        form button {
+            width: 100px;
+            height: 40px;
+            margin-top: 10px;
+            display: flex;
+            align-self: center;
+            cursor: pointer;
+        }
+
+        .info {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info h2,
+        .info h3,
+        .info p {
+            margin: 4px;
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
+                <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="#biodata"><i class="fas fa-address-card"></i> Bio-data</a></li>
+                <li><a href="#projects"><i class="fas fa-code"></i> Projects</a></li>
+                <li><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero">
+            <h1>Welcome to My Resume</h1>
+            <p>Your one-stop platform to learn all about my skills and experience.</p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="profile-container">
+                <img src="pic.png" alt="prathamesh v" class="profile-photo">
+            </div>
+            <div class="details">
+                <div class="info">
+                    <h2><i class="fas fa-user" style="font-size: 20px;"></i> About Me</h2>
+                    <h3>Prathamesh V</h3>
+                    <p><strong>Date of Birth:</strong> 29-07-2004</p>
+                    <p><strong>Email:</strong> prathamdxd2@gmail.com</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/prathamesh-v/"
+                            target="_blank">linkedin.com/in/prathamesh-v</a></p>
+                </div>
+                <hr>
+                <h4><i class="fas fa-file-alt" style="font-size: 20px;"></i> Education</h4>
+                <ul>
+                    <li><strong>Bachelor's in Computer Science</strong> from Jawaharlal Neharu New College of
+                        Engineering (2017-2021)</li>
+                    <li><strong>PUC in Science</strong> from P.A.C.E UM PU College, shimogga (2017-2021)</li>
+                    <li><strong>High School</strong> from National Public School (2016-2019)</li>
+                </ul>
+                <hr>
+                <h4><i class="fas fa-file-alt" style="font-size: 20px;"> </i>Certifications</h4>
+                <ul>
+                    <li>NPTL Certificate on DSA with JAVA (2024)</li>
+                    <li>Certified Front-End Developer (2022)</li>
+                    <li>Google Data Analytics Certificate (2021)</li>
+                    <li>Azure Fundamentals Certification (2020)</li>
+                </ul>
+                <hr>
+                <h4>Languages</h4>
+                <p>English (Fluent), Kannada , Konkani, Hindi ,Telugu </p>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section id="biodata">
+        <h2><i class="fas fa-address-card" style="font-size: 20px;"></i> Bio-data</h2>
+        <div class="content">
+            <p><strong>Name:</strong> Prathamesh v</p>
+            <p><strong>Date of Birth:</strong> July 29, 2004</p>
+            <p><strong>Address:</strong>Krushi nagar ,12th cross, Shimogga</p>
+            <p><strong>Phone:</strong> 6362015274</p>
+            <p><strong>Email:</strong> prathamdxd2@gmail.com</p>
+            <p><strong>Hobbies:</strong> Sketching, Video Editing, Reading Tech Blogs </p>
+        </div>
+    </section>
+    <hr>
+    <section id="projects">
+        <h2><i class="fas fa-code" style="font-size: 20px;"></i>Projects</h2>
+        <div class="content">
+            <ul>
+                <li><strong>Plant Disease Detection System</strong>
+                    <p>Built a machine learning model to identify plant diseases using image recognition. <br>
+                        Technologies:
+                        Python, TensorFlow.</p>
+                    <a href="https://github.com/johndoe/plant-disease-detection" target="_blank">GitHub Repo</a>
+                </li>
+                <hr>
+                <li><strong>Honeypot for Cybersecurity</strong>
+                    <p>Developed a honeypot to detect unauthorized network access. <br> Technologies: Python, Flask,
+                        Networking Tools.</p>
+                    <a href="https://github.com/johndoe/honeypot" target="_blank">GitHub Repo</a>
+                </li>
+                <hr>
+                <li><strong>Road Quality Detection</strong>
+                    <p>Implemented a system to analyze road quality using accelerometer data. <br>Technologies: IoT,
+                        Machine
+                        Learning.</p>
+                    <a href="https://github.com/johndoe/road-quality-detection" target="_blank">GitHub Repo</a>
+                </li>
+                <hr>
+            </ul>
+        </div>
+    </section>
+    <hr>
+    <section id="achievements">
+        <h2><i class="fas fa-trophy" style="font-size: 20px;"></i>Achievements</h2>
+        <div class="content">
+            <ul>
+                <li>Best Intern Award at octanet (2024)</li>
+                <li>Winner of the National Coding Championship (2023)</li>
+                <li>89 PERCENTILE rank in JEE-MAINS (2022)</li>
+                <li>4530th rank in CET (2022)</li>
+                <li>10th rank in PUC with 98% in 12th (2022)</li>
+            </ul>
+        </div>
+    </section>
+    <hr>
+    <section id="contact">
+        <h2><i class="fas fa-envelope" style="font-size: 20px;"></i>Contact Me</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <hr>
+    <script>
+        $(document).ready(function () {
+            $('nav ul li a').on('click', function (event) {
+                event.preventDefault();
+                const target = $(this).attr('href');
+                $('html, body').animate({
+                    scrollTop: $(target).offset().top
+                }, 800);
+            });
+        });
+    </script>
+    <footer>
+        <p>&copy; 2024 prathamdxd . All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
